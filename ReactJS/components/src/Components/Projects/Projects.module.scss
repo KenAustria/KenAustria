@@ -1,0 +1,99 @@
+$color-primary-dark: #6dd5fa;
+$color-primary-light: #dff0f7;
+$color-secondary-light: #ffb900;
+$color-secondary-dark: #ff7730;
+$color-black: #000;
+
+$grid-width: 114rem;
+$gutter-vertical: 8rem;
+$gutter-horizontal: 6rem;
+
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.UCenterText {
+  text-align: center;
+}
+.UMarginBottomBig {
+  margin-bottom: 8rem;
+}
+
+.Projects {
+  height: 24vh;
+  padding: 38rem 0;
+  background-image: linear-gradient(
+      to left,
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url("../../Images/horseshoebend.jpg");
+  background-size: cover;
+
+  transform: skewY(-7deg);
+  margin-top: -10rem;
+}
+
+.Unskew {
+  transform: skewY(7deg);
+  margin-top: -33rem;
+}
+
+.ProjectHeadingSecondary {
+  font-size: 5rem;
+  text-transform: uppercase;
+  font-weight: 300;
+  display: inline-block;
+  background-image: linear-gradient(
+    to left,
+    $color-secondary-light,
+    $color-secondary-dark
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 0.2rem;
+}
+
+.Row {
+  max-width: $grid-width;
+  // background-color: rgba(238, 238, 238,);
+  margin: 0 auto;
+
+  &:not(:last-child) {
+    margin-bottom: $gutter-vertical;
+  }
+
+  @include clearfix;
+
+  [class^="col-"] {
+    background-color: orangered;
+    float: left;
+
+    &:not(:last-child) {
+      margin-right: $gutter-horizontal;
+    }
+  }
+}
+
+.Row:not(:last-child) {
+  margin-bottom: $gutter-vertical;
+}
+
+.col1of3 {
+  width: calc((100% - 2 * #{$gutter-horizontal}) / 3);
+  // background-color: orangered;
+  background-image: linear-gradient(
+    to right bottom,
+    $color-secondary-light,
+    $color-secondary-dark
+  );
+  float: left;
+
+  &:not(:last-child) {
+    margin-right: $gutter-horizontal;
+  }
+}

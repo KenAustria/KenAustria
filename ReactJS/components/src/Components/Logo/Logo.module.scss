@@ -1,0 +1,19 @@
+.Header__LogoBox {
+  position: absolute;
+  top: 4rem;
+  left: 4rem;
+}
+
+.Header__Logo {
+  height: 5rem;
+  width: 5rem;
+  border-radius: 5px;
+}
+
+@media (max-width: 2560) {
+  .Header__Logo {
+    height: 10rem;
+    width: 10rem;
+    border-radius: 5px;
+  }
+}

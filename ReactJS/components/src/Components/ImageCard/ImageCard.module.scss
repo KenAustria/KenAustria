@@ -1,0 +1,229 @@
+$color-secondary-light: #ffb900;
+$color-secondary-dark: #ff7730;
+$color-white: #fff;
+$color-black: #000;
+$color-grey-light-2: #eee;
+
+.ImageCard {
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  position: relative;
+  height: 52rem;
+}
+
+.ImageCardSide {
+  height: 52rem;
+  transition: all 2s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  backface-visibility: hidden;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+}
+
+.ImageCardSide:hover {
+  // transform: rotateY(360deg);
+}
+
+.ImageCardSideFront {
+  z-index: 2;
+  background-color: $color-white;
+}
+
+.ImageCardSideFront:hover {
+  z-index: 1;
+  -webkit-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+}
+
+.ImageCardSideBack {
+  z-index: 1;
+  // -webkit-transform: rotateY(180deg);
+  // transform: rotateY(180deg);
+}
+
+.ImageCardSideBack:hover {
+  // transform: rotateY(0deg);
+}
+
+.ImageCardSideBack1 {
+  background-image: linear-gradient(
+    to right bottom,
+    $color-secondary-light,
+    $color-secondary-dark
+  );
+}
+
+.ImageCardPicture {
+  background-size: cover;
+  height: 23rem;
+  background-blend-mode: screen;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.ImageCardPicture1 {
+  background-image: linear-gradient(
+      to right bottom,
+      $color-secondary-light,
+      $color-secondary-dark
+    ),
+    url("../../Images/burger.jpg");
+}
+
+.ImageCardPicture2 {
+  // height: 23rem;
+  // background-size: cover;
+  background-image: linear-gradient(
+      to right bottom,
+      $color-secondary-light,
+      $color-secondary-dark
+    ),
+    url("../../Images/weather.jpg");
+}
+
+.ImageCardPicture3 {
+  // height: 23rem;
+  // background-size: cover;
+  background-image: linear-gradient(
+      to right bottom,
+      $color-secondary-light,
+      $color-secondary-dark
+    ),
+    url("../../Images/blog.jpg");
+}
+
+.ImageCardHeading {
+  font-size: 2.8rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  text-align: right;
+  color: $color-white;
+  position: absolute;
+  top: 12rem;
+  right: 2rem;
+  width: 75%;
+}
+
+.ImageCardHeading2 {
+  font-size: 2.8rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  text-align: right;
+  color: $color-white;
+  position: absolute;
+  top: 7.5rem;
+  right: 2rem;
+  width: 75%;
+}
+
+.ImageCardHeadingSpan {
+  padding: 1rem 1rem;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  background-image: linear-gradient(
+    to right bottom,
+    rgba($color-secondary-light, 0.85),
+    rgba($color-secondary-dark, 0.85)
+  );
+}
+
+.ImageCardDetails {
+  padding: 3rem;
+
+  ul {
+    list-style: none;
+    width: 80%;
+    margin: 0 -1rem;
+
+    li {
+      text-align: center;
+      font-size: 1.5rem;
+      padding: 1rem;
+
+      &:not(:last-child) {
+        border-bottom: 1px solid $color-grey-light-2;
+      }
+    }
+  }
+}
+
+$color-white: #fff;
+$color-grey-dark: #777;
+$color-black: #000;
+
+.btn:link,
+.btn:visited {
+  backface-visibility: hidden;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 15px;
+  padding: 15px 40px;
+  display: inline-block;
+  // border-radius: 100px;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.btn:hover {
+  // transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba($color-black, 0.2);
+}
+
+.btn:active {
+  // transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba($color-black, 0.2);
+}
+
+.btnWhite {
+  background-color: $color-white;
+  color: $color-grey-dark;
+}
+
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  // border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
+}
+
+.btnWhite::after {
+  background-color: $color-white;
+}
+
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.CallToAction {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  text-align: center;
+}
+
+.DescriptionBox {
+  text-align: center;
+  color: $color-white;
+  margin-bottom: 8rem;
+}
+
+.Description {
+  font-size: 2rem;
+  font-weight: 100;
+  color: $color-white;
+}

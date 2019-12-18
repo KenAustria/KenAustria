@@ -1,0 +1,145 @@
+$color-primary: #158fe0;
+$color-primary-dark: #2980b9;
+$color-primary-light: #6dd5fa;
+$color-grey-light-1: #f7f7f7;
+$grid-width: 114rem;
+$gutter-vertical: 8rem;
+$gutter-horizontal: 6rem;
+
+$color-black: #000;
+
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.About {
+  background-color: $color-grey-light-1;
+  padding: 15rem 0;
+  margin-top: -20vh;
+}
+
+.Composition {
+  position: relative;
+}
+
+.CompositionPhoto {
+  width: 55%;
+  box-shadow: 0 1.5rem 4rem rgba($color-black, 0.4);
+  border-radius: 2px;
+  position: absolute;
+  z-index: 10;
+  transition: all 0.2s;
+  outline-offset: 2rem;
+}
+
+.CompositionPhoto:hover {
+  outline: 1.5rem solid $color-primary;
+  transform: scale(1.05) translateY(-0.5rem);
+  box-shadow: 0 2.5rem 4rem rgba($color-black, 0.5);
+  z-index: 20;
+}
+
+.CompositionPhotoP1 {
+  max-height: 25rem;
+  max-width: 25rem;
+  left: 4rem;
+  top: 16rem;
+}
+
+.CompositionPhotoP2 {
+  max-height: 25rem;
+  max-width: 25rem;
+  right: 0;
+  top: 2rem;
+}
+
+.CompositionPhotoP3 {
+  max-height: 25rem;
+  max-width: 25rem;
+  left: 31%;
+  top: 9rem;
+}
+
+.HeadingSecondary {
+  font-size: 5rem;
+  text-transform: uppercase;
+  font-weight: 300;
+  display: inline-block;
+  background-image: linear-gradient(
+    to left,
+    $color-primary-light,
+    $color-primary-dark
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 0.2rem;
+}
+
+.HeadingTertiary {
+  font-size: 1.9rem;
+  font-weight: 500;
+  // text-transform: uppercase;
+}
+
+.Paragraph {
+  font-size: 1.7rem;
+  font-weight: 350;
+}
+
+.Paragraph2 {
+  font-size: 1.7rem;
+  font-weight: 400;
+  font-style: italic;
+  color: $color-primary-dark;
+
+  outline: 0.3rem solid $color-primary;
+  transform: scale(1.05) translateY(-0.5rem);
+  box-shadow: 0 2.5rem 4rem rgba($color-black, 0.5);
+  z-index: 20;
+  padding: 1rem;
+}
+
+.UCenterText {
+  text-align: center;
+}
+
+.UMarginBottomSmall {
+  margin-bottom: 1.5rem;
+}
+
+.UMarginBottomBig {
+  margin-bottom: 6rem;
+}
+
+.Row {
+  max-width: $grid-width;
+  margin: 2rem auto 5rem auto;
+  // margin: 5rem auto;
+  &:not(:last-child) {
+    margin-bottom: $gutter-vertical;
+  }
+
+  @include clearfix;
+
+  [class^="col-"] {
+    background-color: orangered;
+    float: left;
+
+    &:not(:last-child) {
+      margin-right: $gutter-horizontal;
+    }
+  }
+}
+
+.col1of2 {
+  width: calc((100% - #{$gutter-horizontal}) / 2);
+  float: left;
+
+  &:not(:last-child) {
+    margin-right: $gutter-horizontal;
+  }
+}

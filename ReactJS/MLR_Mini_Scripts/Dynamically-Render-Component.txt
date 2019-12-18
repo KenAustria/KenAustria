@@ -1,0 +1,9 @@
+var Hello = React.createClass({
+	render: function() {
+		return <this.props.component.slug className='text'>
+		{this.props.component.value}
+		</this.props.component.slug>;
+	}
+});
+React.renderComponent(<Hello component={{slug:React.DOM.div, value:'This is my header.'}} />, document.body);
+// renders: This is my header.

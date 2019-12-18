@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>JavaScript &#45; Mutate state via Object Reference</title>
+<style>
+#myContainer {max-width:300px; margin:6px auto; padding:3px 0;
+    background-color:#ffa; border:1px solid #000; text-align:center;
+    font-size:16px; font-family:'Helvetica'; font-weight:lighter;}
+</style>
+</head>
+<body>
+<div id="myContainer">
+    <div id="myDivElement"></div>
+</div>
+<script>
+'use strict';
+const myDiv = document.getElementById('myDivElement');
+let myEvent = "";// not used in this simplified example.
+let myExternalId = "BBB";// this is a choice from an external data source.
+const myState = {
+    myStatePersonsArray:[
+        {myId:'AAA', name:'Max', age:28},
+        {myId:'BBB', name:'Manu', age:29},
+        {myId:'CCC', name:'Stephanie', age:26}
+    ]
+}
+const setProcessHandler = (myEvent, myExternalId) => {
+    const myLocalPersonsArray = [...myState.myStatePersonsArray];
+    const myIndex = myLocalPersonsArray.findIndex(myPerson => myPerson.myId === myExternalId);
+    myLocalPersonsArray[myIndex].myId = 'ZZZ';
+    myDiv.innerHTML += "myLocalPersonsArray: " + myLocalPersonsArray[myIndex].myId + "<br>";// ZZZ
+    myDiv.innerHTML += "myStatePersonsArray: " +  myState.myStatePersonsArray[myIndex].myId;// ZZZ
+            // this proves the myState.myStatePersonsArray.myId has been altered, ...
+                // even though myLocalPersonsArray has not set anything to myStatePersonsArray.
+            // this is why the property must also be copied (deep-copy).
+};
+setProcessHandler(myEvent, myExternalId);
+</script>
+</body>
+</html>
